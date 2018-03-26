@@ -26,14 +26,14 @@
               <div class="color-pellet">
                   <h2>Select color:</h2>
                   <button class="btn btn-black active" data-id="0">Black</button>
-                  <button class="btn btn-blue" data-id="1">Blue</button>
-                  <button class="btn btn-gold" data-id="2">Gold</button>
+                  <button class="btn btn-gold" data-id="1">Gold</button>
+                  <button class="btn btn-blue" data-id="2">Blue</button>
                   <button class="btn btn-rosegold" data-id="3">Rose Gold</button>
               </div>
           </div>
     </body>
     <script>
-        var mobileImages = ["black.jpeg", "blue.jpeg", "gold.jpeg", "rose-gold.jpeg"], btn = document.getElementsByTagName("button");
+        var mobileImages = ["black.jpeg", "gold.jpeg", "blue.jpeg", "rose-gold.jpeg"], btn = document.getElementsByTagName("button");
         for(var i=0; i < btn.length; i++){
             btn[i].addEventListener("click", function(){
                 var imgNumber = this.getAttribute("data-id");
