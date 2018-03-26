@@ -2,8 +2,6 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-        <link rel="shortcut icon" href="img/favicon.ico">
         <title>Change the color - JS Test</title>
         <style>
             html,body{padding: 0;margin: 0;}
@@ -27,22 +25,30 @@
               </div>  
               <div class="color-pellet">
                   <h2>Select color:</h2>
-                  <button class="btn btn-black" onclick="changeImage(this, 0);">Black</button>
-                  <button class="btn btn-blue" onclick="changeImage(this, 1);">Blue</button>
-                  <button class="btn btn-gold" onclick="changeImage(this, 2);">Gold</button>
-                  <button class="btn btn-rosegold" onclick="changeImage(this, 3);">Rose Gold</button>
+                  <button class="btn btn-black active" data-id="0">Black</button>
+                  <button class="btn btn-blue" data-id="1">Blue</button>
+                  <button class="btn btn-gold" data-id="2">Gold</button>
+                  <button class="btn btn-rosegold" data-id="3">Rose Gold</button>
               </div>
           </div>
     </body>
     <script>
-        var mobileImages = {0:"black.jpeg", 1:"blue.jpeg", 2:"gold.jpeg", 3:"rose-gold.jpeg"};
-        function changeImage(obj, imgNumber){
-            var btn = document.getElementsByTagName("button");
+        var mobileImages = ["black.jpeg", "blue.jpeg", "gold.jpeg", "rose-gold.jpeg"], btn = document.getElementsByTagName("button");
+        for(var i=0; i < btn.length; i++){
+            btn[i].addEventListener("click", function(){
+                var imgNumber = this.getAttribute("data-id");
+                changeImage(this, imgNumber);
+            });
+        }
+        function changeImage(currObj, imgNumber){
+            removeActiveClass();
+            currObj.classList.add("active");
+            document.getElementById("mobileImg").src="images/" + mobileImages[imgNumber];
+        }
+        function removeActiveClass(){
             for(var i=0; i < btn.length; i++){
                 btn[i].classList.remove("active");
             }
-            obj.classList.add("active");
-            document.getElementById("mobileImg").src="images/" + mobileImages[imgNumber];
         }
     </script>
 </html>
