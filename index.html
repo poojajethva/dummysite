@@ -14,21 +14,24 @@
   <header>
     <div class="topbar">
       <div class="container">
-        <div class="row">
-          <div class="innercont col-xs-12">
-            <div class="logo col-sm-3">
-              YOUR Logo
-            </div>
-            <nav class="menu col-sm-5 pull-right">
-              <ul>
-                <li>Pages</li>
-                <li>Features</li>
-                <li>Services</li>
-                <li>Blog</li>
-                <li>Contact</li>
-              </ul>
-            </nav>
+        <div class="innercont col-xs-12">
+          <div class="logo pull-left">
+            YOUR Logo
           </div>
+          <div class="hamburger" title="Click here to open menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <nav class="menu pull-right">
+            <ul>
+              <li>Pages</li>
+              <li>Features</li>
+              <li>Services</li>
+              <li>Blog</li>
+              <li>Contact</li>
+            </ul>
+          </nav>
         </div>
       </div>
     </div>
@@ -285,14 +288,19 @@
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/slick.min.js"></script>
 <script>
-  $('.slider').slick({
-    infinite: true,
-    speed: 300,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 2000,
-    arrows: true
+  $(document).ready(function(){
+    $('.slider').slick({
+      infinite: true,
+      speed: 300,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 2000,
+      arrows: true
+    });
+    $('.hamburger').click(function(){
+      $('.menu').toggle();
+    });
   });
 </script>
 </body>
